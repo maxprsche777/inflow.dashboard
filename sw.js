@@ -1,6 +1,6 @@
 /* Infloww Dashboard - offline cache.
    Bump CACHE when you upload a new index.html so the app picks it up. */
-var CACHE = "infloww-v3";
+var CACHE = "infloww-v4";
 var ASSETS = ["./", "./index.html", "./manifest.webmanifest",
               "./icon-192.png", "./icon-512.png",
               "./screenshot-wide.png", "./screenshot-narrow.png", "./preview.png"];

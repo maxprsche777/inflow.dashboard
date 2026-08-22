@@ -251,6 +251,19 @@
   .hint{font-size:12px;color:var(--text-2);background:#f4f6ff;border:1px solid #e2e8ff;border-radius:10px;
     padding:10px 12px;margin-bottom:16px;line-height:1.5}
 
+  /* ---------- Installed app: hide the Chrome title bar ----------
+     With window-controls-overlay the page fills the title bar area; this strip
+     stays draggable so the window can still be moved. */
+  .wco-drag{display:none}
+  @media (display-mode: window-controls-overlay){
+    .wco-drag{display:block;position:fixed;
+      top:env(titlebar-area-y,0);left:env(titlebar-area-x,0);
+      width:env(titlebar-area-width,100%);height:env(titlebar-area-height,38px);
+      background:var(--bg);z-index:150;-webkit-app-region:drag}
+    .app{padding-top:env(titlebar-area-height,38px)}
+    .topbar{top:env(titlebar-area-height,38px)}
+  }
+
   /* ---------- SPLASH / opening animation ----------
      Stage 1: INFLOWW wordmark.  Stage 2: logo + loading dots. */
   .splash{position:fixed;inset:0;z-index:200;background:#fff;display:flex;
@@ -312,6 +325,7 @@
   setTimeout(function(){ if(sp.parentNode) sp.remove(); }, 6000);
 })();
 </script>
+<div class="wco-drag"></div>
 <div class="app">
   <!-- SIDEBAR -->
   <aside class="sidebar">
